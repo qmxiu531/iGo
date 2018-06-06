@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.gionee.autotest.traversal.widget.MarqueeTextView
+        android:id="@+id/activity_info"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textColor="@color/colorDark"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        tools:text="com.android.calculate2(计算机)" />
+
+    <TextView
+        android:id="@+id/activity_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp" />
+</LinearLayout>

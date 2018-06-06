@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/edit_fields_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="16dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:text="@string/label_create_timer"
+                android:textColor="@android:color/white"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/toolbar">
+
+            <EditText
+                android:id="@+id/hour"
+                style="@style/TimerText.EditField"/>
+
+            <TextView
+                android:id="@+id/hour_label"
+                android:text="@string/label_h"
+                style="@style/TimerText.FieldLabel"/>
+
+            <EditText
+                android:id="@+id/minute"
+                style="@style/TimerText.EditField"/>
+
+            <TextView
+                android:id="@+id/minute_label"
+                android:text="@string/label_m"
+                style="@style/TimerText.FieldLabel"/>
+
+            <EditText
+                android:id="@+id/second"
+                style="@style/TimerText.EditField"/>
+
+            <TextView
+                android:id="@+id/second_label"
+                android:text="@string/label_s"
+                style="@style/TimerText.FieldLabel"/>
+
+            <View
+                android:id="@+id/focus_grabber"
+                style="@style/FocusGrabber"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/colorDone"
+        android:src="@drawable/ic_done_white_24dp"/>
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/num_pad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/edit_fields_layout"
+        android:layout_above="@id/fab"
+        app:columnCount="3">
+
+        <!--We require the buttons' heights to be weighted, so we can't
+        reuse the GridLayoutNumpadButton style used by the bottom
+        sheet numpad.-->
+        <Button
+            android:id="@+id/one"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="1"/>
+
+        <Button
+            android:id="@+id/two"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="2"/>
+
+        <Button
+            android:id="@+id/three"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="3"/>
+
+        <Button
+            android:id="@+id/four"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="4"/>
+
+        <Button
+            android:id="@+id/five"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="5"/>
+
+        <Button
+            android:id="@+id/six"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="6"/>
+
+        <Button
+            android:id="@+id/seven"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="7"/>
+
+        <Button
+            android:id="@+id/eight"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="8"/>
+
+        <Button
+            android:id="@+id/nine"
+            style="@style/GridLayoutTimerNumpadButton"
+            android:text="9"/>
+
+        <Button
+            android:id="@+id/zero"
+            style="@style/GridLayoutTimerNumpadButton"
+            app:layout_column="1"
+            android:text="0"/>
+
+        <!--GridLayoutTimerNumpadButton has text attributes.. but using it
+        is a simple way to get the weighted height. I'd rather not define a
+        new style based on GridLayoutNumpadElement just for this... -->
+        <ImageButton
+            android:id="@+id/backspace"
+            android:src="@drawable/ic_backspace_24dp"
+            style="@style/GridLayoutTimerNumpadButton"
+            app:layout_column="2"/>
+
+    </android.support.v7.widget.GridLayout>
+
+</RelativeLayout>

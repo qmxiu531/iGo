@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gionee.autotest.traversal.exceptions.MainActivity">
+
+    <Button
+        android:id="@+id/normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Normal" />
+
+    <Button
+        android:id="@+id/anr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ANR" />
+
+    <Button
+        android:id="@+id/crash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CRASH" />
+
+    <Button
+        android:id="@+id/wtf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WTF" />
+
+    <Button
+        android:id="@+id/hello_android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello, Android!" />
+
+    <Button
+        android:id="@+id/hello_world"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+</LinearLayout>

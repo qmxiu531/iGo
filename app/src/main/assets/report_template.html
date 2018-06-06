@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>{{title}}</title>
+	<meta charset="utf-8">
+	<meta name="description" content="{{subtitle}}">
+	<script type="text/javascript">
+		function setResultContentColor() {
+			var result = document.getElementById("report-result") ;
+			if (result.innerHTML == "通过") {
+				result.style.color = "green";
+			}else{
+				result.style.color = "red";
+			}
+		}
+	</script>
+	<style type="text/css">
+		body {
+		    color: #546E7A;
+			height: 100%;
+			font: 14px/19px sans-serif;
+			font-weight: 400;
+			letter-spacing: .1;
+			padding-top: 20px;
+			padding-bottom: 50px;
+		}
+		.container{
+			margin-right: auto;
+			margin-left: auto;
+			width: 940px;
+		}
+		.report-conclusion,
+		.report-detail {
+			margin: 0;
+		  	padding: 10px 30px 0 30px;
+		}
+
+		.report-title{
+			margin: 0;
+		  	padding: 10px 30px ;
+			border-radius: 6px;
+		}
+
+		.report-title h1{
+			margin-bottom: 5px;
+  			font-weight: 200;
+  			text-align: center;
+		}
+		.report-title p{
+			margin: 0;
+			text-align: right;
+		}
+
+		h2{
+			margin-bottom: 5px;
+  			font-weight: 300;
+		}
+
+		.report-conclusion p{
+			margin: 15px 30px;
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.sub-title{
+			font-weight: bold;
+			font-size: 18px ;
+			padding: 8px 8px 8px 0;
+		}
+
+		.notice{
+			font-size: 12px ;
+			color: red;
+			padding: 0px 8px 8px 0;
+		}
+
+		.line{
+			width: auto;
+			height: 1px;
+			background:#B0BEC5;
+			margin-top: 5px ;
+			margin-bottom: 5px ;
+			overflow: hidden;
+		}
+		.report-detail-content{
+			margin: 15px 30px;
+		}
+		.span_5{
+			width: 5%;
+		}
+		.span_10{
+			width: 10%;
+		}
+		.span_15{
+			width: 15%;
+		}
+		.span_20{
+			width: 20%;
+		}
+		.span_40{
+			width: 40%;
+		}
+		.span_60{
+			width: 60%;
+		}
+		.span_80{
+			width: 80%;
+		}
+
+		.report-detail-config{
+
+		}
+
+		.report-detail p{
+			margin: 8px 0;
+		}
+		.table{
+			width: 100%;
+			margin-bottom: 20px;
+			border-right:1px solid #ddd;
+			border-bottom:1px solid #ddd;
+			border-spacing: 0;
+		}
+		.no-margin-table{
+			margin-bottom: 0;
+		}
+		.table td{
+			padding: 8px;
+			border-left:1px solid #ddd;
+			border-top:1px solid #ddd;
+		}
+		.table th{
+			border-left:1px solid #ddd;
+			border-top:1px solid #ddd;
+		}
+		.table-cycle-event{
+			border-bottom:0;
+			border-right: 0;
+		}
+
+		.table-cycle-event th{
+			border-top: 0;
+		}
+		.table-cycle-event tr td:first-child {
+			border-left: 0;
+		}
+		.table-cycle-event tr th:first-child {
+			border-left: 0;
+		}
+	</style>
+</head>
+<body onload="setResultContentColor()">
+	<div class="container">
+		<!-- setup header title -->
+		<div class="report-title">
+			<h1>{{title}}</h1>
+			<p >{{subtitle}}</p>
+			<div class="line"></div>
+		</div>
+		<!-- setup conclusion -->
+		<div class="report-conclusion">
+			<h2>测试结论</h2>
+			<p id="report-result">{{test_result}}</p>
+		</div>
+        {{#detail}}
+		<!-- setup detail information -->
+		<div class="report-detail">
+			<h2>测试详情</h2>
+			<div class="report-detail-content">
+                <!-- summary information -->
+                {{#summaryInfo}}
+				<div class="report-detail-summary">
+					<p class="sub-title">测试信息</p>
+					<table class="table">
+						<tr><td class="span_20">测试应用包名&nbsp;&nbsp;&nbsp;</td><td class="span_80">{{packageName}}</td></tr>
+						<tr><td >测试时间&nbsp;&nbsp;&nbsp;</td><td>{{testTime}}</td></tr>
+						<tr><td >测试时长&nbsp;&nbsp;&nbsp;</td><td>{{testDuration}}</td></tr>
+						<tr><td >界面覆盖率&nbsp;&nbsp;&nbsp;</td><td>{{testConverage}}</td></tr>
+						<tr><td >当前事件计数&nbsp;&nbsp;&nbsp;</td><td>{{testEventCounter}}</td></tr>
+						<tr><td >应用Activity总数&nbsp;&nbsp;&nbsp;</td><td>{{totalActivities}}</td></tr>
+						{{#test_reason}}
+						<tr><td >测试未通过原因&nbsp;&nbsp;&nbsp;</td><td>{{test_reason}}</td></tr>
+						{{/test_reason}}
+					</table>
+				</div>
+                {{/summaryInfo}}
+
+                <!--error information -->
+                {{#errorInfo}}
+                <div class="report-detail-error">
+                    <p class="sub-title">工具异常</p>
+                    <p class="notice">备注:请提交给工具开发者解决异常报错问题</p>
+                    <table class="table">
+                        <tr><td class="span_20">异常码</td><td >异常信息</td></tr>
+                        <tr><td >{{errorCode}}</td><td >{{errorMsg}}</td>
+                    </table>
+                </div>
+                {{/errorInfo}}
+
+                <!-- Activity information -->
+                {{#activityInfo}}
+				<div class="report-detail-activity">
+					<p class="sub-title">界面测试详情</p>
+                    {{#hasTActivities}}
+					<p>1.&nbsp;&nbsp;&nbsp;已测试界面</p>
+					<table class="table">
+                        <tr><th class="span_20">序号</th><th class="span_60">Activity名称</th><th class="span_20">Activity标签</th></tr>
+                        {{#tActivities}}
+                        <tr><td>{{index}}</td><td>{{activityName}}</td><td>{{activityLabel}}</td></tr>
+                        {{/tActivities}}
+					</table>
+                    {{/hasTActivities}}
+                    {{#hasNActivities}}
+					<p>2.&nbsp;&nbsp;&nbsp;未测试界面</p>
+					<table class="table">
+                        <tr><th class="span_20">序号</th><th class="span_60">Activity名称</th><th class="span_20">Activity标签</th></tr>
+                        {{#nActivities}}
+                        <tr><td>{{index}}</td><td>{{activityName}}</td><td>{{activityLabel}}</td></tr>
+                        {{/nActivities}}
+					</table>
+                    {{/hasNActivities}}
+				</div>
+                {{/activityInfo}}
+
+                <!-- Exception information -->
+                {{#exceptionInfo}}
+				<div class="report-detail-exception">
+					<p class="sub-title">异常信息</p>
+                    <p class="notice">备注:请确认后提交issue到Bug管理系统</p>
+                    {{#exceptionInfos}}
+					<table class="table no-margin-table">
+						<tr><td rowspan="{{rowspan}}" class="span_5">{{index}}</td><td class="span_15">异常类型&nbsp;&nbsp;&nbsp;</td><td>{{errorType}}</td></tr>
+						<tr><td>异常应用&nbsp;&nbsp;&nbsp;</td><td>{{processName}}({{pid}})</td></tr>
+						<tr><td>异常时间&nbsp;&nbsp;&nbsp;</td><td>{{timestamp}}</td></tr>
+                        {{#isCrash}}
+                        <tr><td>异常名称&nbsp;&nbsp;&nbsp;</td><td>{{shortMsg}}</td></tr>
+                        {{/isCrash}}
+						<tr><td>堆栈信息&nbsp;&nbsp;&nbsp;</td><td>{{traces}}</td></tr>
+                        {{#hasLastEvent}}
+						<tr><td colspan="2">异常前事件序列</td></tr>
+						<tr><td colspan="2" style="padding: 0px;">
+							<table class="table table-cycle-event" style="margin-bottom: 0px;">
+								<tr><th class="span_5">序号</th><th class="span_10">类型</th><th class="span_60">点击信息</th><th class="span_20">截图</th></tr>
+                                {{#lastEventInfos}}
+								<tr><td>{{eventCounter}}</td><td>{{eventType}}</td><td>{{itemInfo}}</td>
+                                    <td align="center"><a href="../screenshot/{{eventCounter}}.png" target="_blank">
+                                        <img src="../screenshot/{{eventCounter}}.png" width="100%" alt="screenshot"></a></td></tr>
+                                {{/lastEventInfos}}
+                            </table>
+						</td></tr>
+                        {{/hasLastEvent}}
+					</table>
+                    {{/exceptionInfos}}
+				</div>
+                {{/exceptionInfo}}
+
+				<!--setup device information-->
+                {{#deviceInfo}}
+				<div class="report-detail-device">
+					<p class="sub-title">设备信息</p>
+					<table class="table">
+						<tr><td class="span_20">Android版本号&nbsp;&nbsp;&nbsp;</td><td>Android {{androidVersion}}</td></tr>
+						<tr><td >手机型号&nbsp;&nbsp;&nbsp;</td><td>{{modelName}}</td></tr>
+						<tr><td >系统型号&nbsp;&nbsp;&nbsp;</td><td>{{sysVersion}}</td></tr>
+						<tr><td >内部型号&nbsp;&nbsp;&nbsp;</td><td>{{gnVersionNum}}</td></tr>
+					</table>
+				</div>
+                {{/deviceInfo}}
+
+				<!--setup configuration information-->
+                {{#configInfo}}
+				<div class="report-detail-config">
+					<p class="sub-title">配置信息</p>
+					<table class="table">
+						<tr><td class="span_20">最大的运行事件数&nbsp;&nbsp;&nbsp;</td><td>{{sMaxSteps}}</td></tr>
+						<tr><td >最大的运行时长&nbsp;&nbsp;&nbsp;</td><td>{{sMaxRuntime}} s</td></tr>
+						<tr><td >最大重启应用次数&nbsp;&nbsp;&nbsp;</td><td>{{sMaxRestartAppTimes}}</td></tr>
+						<tr><td >Log模式&nbsp;&nbsp;&nbsp;</td><td>{{sLogMode}}</td></tr>
+					</table>
+				</div>
+                {{/configInfo}}
+
+			</div>
+		</div>
+        {{/detail}}
+	</div>
+</body>
+</html>

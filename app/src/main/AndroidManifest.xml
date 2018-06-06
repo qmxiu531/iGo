@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gionee.autotest.traversal"
+    android:sharedUserId="android.uid.shell">
+
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+
+    <application
+        android:name=".IGoApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppBasicTheme" >
+        <activity android:name=".ui.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.CreateNewActivity"
+            android:label="@string/label_create_new"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.CreateTimeActivity"
+            android:label="@string/label_create_timer"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:theme="@style/TimerTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.ChooseAppActivity"
+            android:label="@string/label_choose_application"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.ResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/result_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.ActivityDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/activities_info_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.WebviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/web_content">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.ExceptionListActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/exception_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.AboutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoElevationAppBasicTheme"
+            android:label="@string/about">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.FireUiAutomatorTestService">
+
+        </service>
+
+        <receiver android:name=".receiver.TestFinishReceiver">
+            <intent-filter>
+                <action android:name="com.gionee.autotest.action.TEST_FINISHED" />
+            </intent-filter>
+        </receiver>
+
+<!--        <receiver android:name=".receiver.TestExceptionReceiver">
+            <intent-filter>
+                <action android:name="com.gionee.autotest.traversal.ACTION_START_CATCH"/>
+                <action android:name="com.gionee.autotest.traversal.ACTION_STOP_CATCH"/>
+                <action android:name="android.intent.action.DROPBOX_ENTRY_ADDED"/>
+            </intent-filter>
+        </receiver>-->
+    </application>
+
+</manifest>

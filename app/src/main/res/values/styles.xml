@@ -1,0 +1,147 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="popupTheme">@style/ToolbarPopupTheme</item>
+    </style>
+
+    <style name="AppBasicTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NoElevationAppBasicTheme" parent="AppBasicTheme">
+    </style>
+
+    <style name="TimerTheme" parent="AppTheme">
+        <item name="colorAccent">@color/colorRed</item>
+    </style>
+
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat">
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColor">@color/colorDark</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <!--<item name="android:windowBackground">@drawable/background_splash</item>-->
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="ConfigImageStyle">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:layout_gravity">top|center_horizontal</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="ConfigBigTitle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="ResultBigTitle" parent="ConfigBigTitle">
+        <item name="android:textColor">@color/colorDark</item>
+    </style>
+
+    <style name="ResultTextView" parent="ResultBigTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+
+    <style name="ConfigTitle" parent="ConfigBigTitle">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ConfigSubTitle" parent="ConfigTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TimerText.Countdown">
+        <item name="android:layout_centerHorizontal">true</item>
+
+    </style>
+    <!--Style for a button that opens an AddLabelDialog-->
+    <style name="BaseLabel" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/text_size_subhead</item>
+    </style>
+
+    <style name="TimerText" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/text_size_display_2</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="TimerText.EditField">
+        <item name="android:text">00</item>
+        <item name="android:textSize">@dimen/text_size_display_3</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="TimerText.FieldLabel">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:layout_marginEnd">@dimen/field_end_margin</item>
+    </style>
+
+    <style name="FocusGrabber">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <!-- We need both focusable attrs for requestFocus() to succeed -->
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <!--Style for the FAB in EditTimerActivity-->
+    <style name="BaseTimerFab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_done_white_24dp</item>
+    </style>
+
+    <style name="TimerFab" parent="BaseTimerFab"/>
+
+    <style name="GridLayoutNumpadElement">
+        <!-- http://stackoverflow.com/a/6868308/5055032
+         Leave off the namespace to reference a custom attribute.
+         Here, we are referencing the "grid:" namespace -->
+        <item name="layout_columnWeight">1</item>
+        <!--<item name="layout_rowWeight">1</item>-->
+        <item name="android:layout_height">@dimen/numeric_keypad_cell_height</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GridLayoutNumpadButton" parent="GridLayoutNumpadElement">
+        <item name="android:textSize">@dimen/grid_element_text_size</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="GridLayoutTimerNumpadButton" parent="GridLayoutNumpadButton">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="layout_rowWeight">1</item>
+    </style>
+
+    <style name="AboutStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+</resources>

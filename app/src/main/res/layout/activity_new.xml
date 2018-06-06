@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightGrey"
+    android:fitsSystemWindows="true"
+    android:paddingEnd="10dp"
+    android:paddingStart="10dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/config_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- add config package name label -->
+        <include layout="@layout/layout_config_package" />
+
+        <!-- add basic config label -->
+        <include layout="@layout/layout_max_time" />
+
+<!--        <include layout="@layout/layout_max_events" />
+
+        <include layout="@layout/layout_max_restart_events" />
+
+        <include layout="@layout/layout_max_throttle" />-->
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="16dp"
+        app:layout_behavior="com.gionee.autotest.traversal.widget.ScrollAwareFABBehavior"
+        android:src="@drawable/ic_done_white_24dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_anchor="@id/config_layout"
+        app:layout_anchorGravity="bottom|center"/>
+</android.support.design.widget.CoordinatorLayout>

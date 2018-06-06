@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/exception_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        app:alignmentMode="alignBounds"
+        app:columnCount="2"
+        app:columnOrderPreserved="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/result_title_exception"
+            android:theme="@style/ResultBigTitle" />
+
+        <ImageView
+            android:id="@+id/exception_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            app:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_info_outline_black_24dp" />
+        <!--exception_title_crash-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exception_title_crash"
+            android:theme="@style/ResultTextView"
+            android:layout_marginEnd="12dp"
+            app:layout_gravity="right" />
+
+        <com.gionee.autotest.traversal.widget.MarqueeTextView
+            android:id="@+id/exception_title_crash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:theme="@style/ResultTextView"
+            app:layout_gravity="left"
+            tools:text="2324454" />
+        <!--exception_title_anr-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exception_title_anr"
+            android:theme="@style/ResultTextView"
+            android:layout_marginEnd="12dp"
+            app:layout_gravity="right" />
+
+        <com.gionee.autotest.traversal.widget.MarqueeTextView
+            android:id="@+id/exception_title_anr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:theme="@style/ResultTextView"
+            app:layout_gravity="left"
+            tools:text="54324" />
+
+    </android.support.v7.widget.GridLayout>
+</android.support.v7.widget.CardView>

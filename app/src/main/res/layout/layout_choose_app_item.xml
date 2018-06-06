@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="5"
+    android:rowCount="2"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_columnSpan="1"
+        android:layout_rowSpan="2"
+        android:contentDescription="@null"
+        android:scaleType="centerInside" />
+
+    <com.gionee.autotest.traversal.widget.MarqueeTextView
+        android:id="@+id/app_name"
+        android:layout_width="0dp"
+        android:layout_columnSpan="4"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/colorPrimary"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <TextView
+        android:id="@+id/app_pkg"
+        android:layout_width="0dp"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_columnSpan="4"
+        android:textColor="@color/colorPrimary"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</GridLayout>

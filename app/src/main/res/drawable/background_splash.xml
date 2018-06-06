@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item android:drawable="@color/colorPrimary"/>
+    <item >
+        <bitmap
+            android:gravity="center"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/launcher_icon"/>
+    </item>
+
+</layer-list>
